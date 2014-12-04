@@ -3,6 +3,7 @@ var fs = require('fs');
 
 module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-bower-cli');
+    grunt.loadNpmTasks('grunt-replace');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-clean');
@@ -19,6 +20,7 @@ module.exports = function (grunt) {
         'concat:less_plugins',
         'concat:js',
         'less:uncompressed',
+        'replace',
         'uglify',
         'clean:post'
     ]);
@@ -28,7 +30,9 @@ module.exports = function (grunt) {
         'compile'
     ]);
 
-    var files_js = [];
+    var files_js = [
+        'src/helpers/*.js'
+    ];
     var less_imports = [];
     var less_plugin_files = [];
 
@@ -70,6 +74,33 @@ module.exports = function (grunt) {
         copy: {
             less_plugins: {
                 files: less_plugin_files
+            }
+        },
+        replace: {
+            options: {prefix: '@@'},
+            main: {
+                options: {
+                    variables: {
+                        'version': '<%= pkg.version %>',
+                        'js': '<%= grunt.file.read("dist/js/plugins.js").replace(/\\n/g, "\\n\\t") %>',
+                        'css': '<%= grunt.file.read("dist/css/plugins.css") %>'
+                    }
+                },
+                files: [
+                    {src: ['src/.wrapper.js'], dest: 'dist/js/plugins.js'},
+                ]
+            },
+            css_post: {
+                options: {
+                    variables: {
+                        'version': '<%= pkg.version %>'
+                    }
+                },
+                files: [
+                    {expand: true, flatten: false, src: ['dist/css/*.css'], dest: ''},
+                    {expand: true, flatten: false, src: ['dist/less/*.less'], dest: ''},
+                    {expand: true, flatten: false, src: ['dist/less/plugins/*.less'], dest: ''},
+                ]
             }
         },
         less: {
