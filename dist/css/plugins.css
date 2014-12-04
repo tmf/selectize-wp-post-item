@@ -1,0 +1,8 @@
+.selectize-control.plugin-wp_post_item .item-thumbnail {
+  float: left;
+  line-height: 0;
+}
+.selectize-control.plugin-wp_post_item .item-thumbnail img {
+  max-height: 32px;
+  margin-right: 5px;
+}
