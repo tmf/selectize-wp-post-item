@@ -4,5 +4,27 @@
 }
 .selectize-control.plugin-wp_post_item .item-thumbnail img {
   max-height: 32px;
-  margin-right: 5px;
+  margin: 3px 5px 3px 3px;
+}
+.selectize-control.plugin-wp_post_item .title {
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #333;
+  float: left;
+}
+.selectize-control.plugin-wp_post_item .date {
+  font-style: italic;
+  float: right;
+  margin-left: 1em;
+}
+.selectize-control.plugin-wp_post_item .date:before {
+  content: "(";
+}
+.selectize-control.plugin-wp_post_item .date:after {
+  content: ")";
+}
+.selectize-control.plugin-wp_post_item .author {
+  display: block;
+}
+.selectize-control.plugin-wp_post_item .selectize-input > div {
+  padding: 3px;
 }
