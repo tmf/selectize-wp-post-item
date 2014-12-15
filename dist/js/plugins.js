@@ -63,15 +63,17 @@
 	        if(hasNestedProperty(data, options.titleField)){
 	            var $title = $('<span>').text(resolveNestedProperty(data, options.titleField)).addClass('title'),
 	                $date = $('<span>').text(resolveNestedProperty(data, options.dateField)).addClass('date'),
-	                $excerpt = $('<span>').text(resolveNestedProperty(data, options.excerptField)).addClass('excerpt'),
-	                $author = $('<span>').text('( by ' + resolveNestedProperty(data, options.authorField)).addClass('author') + ')',
+	                $excerpt = $('<div>').text(resolveNestedProperty(data, options.excerptField)).addClass('excerpt'),
+	                $author = $('<span>').text('( by ' + resolveNestedProperty(data, options.authorField) + ')').addClass('author'),
+	                $titleRow= $('<div>').append([$title, $author, $date]).addClass('title-row'),
+	                $postDataContainer = $('<div>').append([$titleRow, $excerpt]).addClass('post-data-container'),
 	                $itemHtml = $(itemHtml);
 	
 	            // remove original text matching the post title
 	            $itemHtml.contents().filter(function(){
 	                return this.nodeType == 3 && this.textContent.trim() === resolveNestedProperty(data, options.titleField);
 	            }).remove();
-	            $itemHtml.prepend([$title, $date, $author, $excerpt]);
+	            $itemHtml.prepend($postDataContainer);
 	            itemHtml = outerHtml($itemHtml);
 	        }
 	        return itemHtml;

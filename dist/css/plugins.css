@@ -9,9 +9,10 @@
 .selectize-control.plugin-wp_post_item .title {
   font-weight: bold;
   float: left;
-}
-.selectize-control.plugin-wp_post_item [data-value] .title {
   text-shadow: 1px 1px 2px #333;
+}
+.selectize-control.plugin-wp_post_item [data-selectable] .title {
+  text-shadow: none;
 }
 .selectize-control.plugin-wp_post_item .date {
   font-style: italic;
@@ -28,9 +29,12 @@
   display: block;
   float: left;
 }
-.selectize-control.plugin-wp_post_item .excerpt {
-  float: left;
-  max-width: calc(28%);
+.selectize-control.plugin-wp_post_item .post-data-container {
+  margin-left: 72px;
+}
+.selectize-control.plugin-wp_post_item .post-data-container .excerpt,
+.selectize-control.plugin-wp_post_item .post-data-container .title-row {
+  width: 100%;
 }
 .selectize-control.plugin-wp_post_item .selectize-input > div {
   padding: 3px;
