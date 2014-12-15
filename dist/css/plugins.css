@@ -3,13 +3,15 @@
   line-height: 0;
 }
 .selectize-control.plugin-wp_post_item .item-thumbnail img {
-  max-height: 32px;
+  max-height: 64px;
   margin: 3px 5px 3px 3px;
 }
 .selectize-control.plugin-wp_post_item .title {
   font-weight: bold;
-  text-shadow: 1px 1px 2px #333;
   float: left;
+}
+.selectize-control.plugin-wp_post_item [data-value] .title {
+  text-shadow: 1px 1px 2px #333;
 }
 .selectize-control.plugin-wp_post_item .date {
   font-style: italic;
@@ -24,6 +26,11 @@
 }
 .selectize-control.plugin-wp_post_item .author {
   display: block;
+  float: left;
+}
+.selectize-control.plugin-wp_post_item .excerpt {
+  float: left;
+  max-width: calc(28%);
 }
 .selectize-control.plugin-wp_post_item .selectize-input > div {
   padding: 3px;

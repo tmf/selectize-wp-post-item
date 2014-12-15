@@ -64,7 +64,7 @@
 	            var $title = $('<span>').text(resolveNestedProperty(data, options.titleField)).addClass('title'),
 	                $date = $('<span>').text(resolveNestedProperty(data, options.dateField)).addClass('date'),
 	                $excerpt = $('<span>').text(resolveNestedProperty(data, options.excerptField)).addClass('excerpt'),
-	                $author = $('<span>').text(resolveNestedProperty(data, options.authorField)).addClass('author'),
+	                $author = $('<span>').text('( by ' + resolveNestedProperty(data, options.authorField)).addClass('author') + ')',
 	                $itemHtml = $(itemHtml);
 	
 	            // remove original text matching the post title
