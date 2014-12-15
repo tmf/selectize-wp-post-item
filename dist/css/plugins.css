@@ -28,6 +28,7 @@
 .selectize-control.plugin-wp_post_item .author {
   display: block;
   float: left;
+  margin-left: 1em;
 }
 .selectize-control.plugin-wp_post_item .post-data-container {
   margin-left: 72px;
@@ -35,6 +36,7 @@
 .selectize-control.plugin-wp_post_item .post-data-container .excerpt,
 .selectize-control.plugin-wp_post_item .post-data-container .title-row {
   width: 100%;
+  float: left;
 }
 .selectize-control.plugin-wp_post_item .selectize-input > div {
   padding: 3px;

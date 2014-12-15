@@ -1,6 +1,6 @@
 {
     "name": "selectize-wp-post-item",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "A selectize.js plugin which formats items and options if WordPress post data is provided",
     "main": "src/plugins/wp_post_item/plugin.js",
     "scripts": {
